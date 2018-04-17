@@ -14,7 +14,7 @@ This prompt will show the user's most recent tweets.
 ```
 node liri.js spotify-this-song '<song name here>'
 ```
-This prompt with followed by the song title will show infomation from Spotify API about the song.
+This prompt with followed by the song title will show infomation from Spotify API about the song(s).
 
 ### Movie This
 
@@ -30,4 +30,4 @@ node liri.js do-what-it-says
 ```
 This prompt will return a random output.  Try it out to see what it does!
 
-Thank you for looking at my aplication and viewing this README. 
+Thank you for your interest in my aplication and for viewing this README. 

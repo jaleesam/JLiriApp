@@ -54,12 +54,13 @@ var getMovieData = function (movieData) {
 
         //console.log('error:', error); Print the error if one occurred
         
-        // console.log(jsonData);
+        
+
         console.log("\n~~Movie This Results~~\n")
         console.log('Move Title: ' + jsonData.Title); 
         console.log('Release Year: ' + jsonData.Year);
         console.log('IMDB Rating: '+jsonData.imdbRating);
-        console.log('Rotten Tomatoes Rating: '+jsonData.Ratings.Source);
+        console.log('Rotten Tomatoes Rating: '+jsonData.Ratings[1].Value);
         console.log('Country of Origin: '+jsonData.Country);
         console.log('Language: '+jsonData.Language); 
         console.log('Plot: '+jsonData.Plot);
