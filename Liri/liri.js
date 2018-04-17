@@ -1,5 +1,5 @@
-require("dotenv").config();
-var keys = require("./keys.js");
+require('dotenv').config();
+var keys = require('./keys.js');
 var Twitter = require('twitter');
 var Spotify = require('node-spotify-api');
 var request = require('request');
@@ -12,23 +12,31 @@ var tweets = function () {
     var params = { screen_name: 'Jaccrea' };
     client.get('statuses/user_timeline', params, function (error, tweets, response) {
         if (!error) {
+            console.log("\n~~My Tweets Results~~\n");
             for (var i = 0; i < tweets.length; i++) {
                 //   console.log(tweets[i].created_at);
+                console.log("Date Tweeted: " + tweets[i].created_at)
+                console.log('Tweet: ' + tweets[i].text);
+                console.log("\n~~~~\n");
             }
-            console.log(tweets);
         }
     });
 }
+
 
 var getSpotifyData = function (songData) {
     spotify.search({ type: 'track', query: songData }, function (err, data) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
-
-        console.log(data.tracks.items);
+        console.log("\n~~Spotify This Song Results~~\n")
+        // console.log(data.tracks.items);
         for (var i = 0; i < data.tracks.items.length; i++) {
-            console.log(data.tracks.items[i].album.name);
+            console.log('~Song Result~\n')
+            console.log('Song Title: ' +data.tracks.items[i].name);
+            console.log('Song Preview: ' +data.tracks.items[i].preview_url);
+            console.log('Album : ' +data.tracks.items[i].album.name);
+            console.log("\n~~~~\n");
         }
     });
 }
@@ -44,25 +52,39 @@ var getMovieData = function (movieData) {
 
         var jsonData = JSON.parse(body);
 
-        console.log('error:', error); // Print the error if one occurred
-        console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
-        console.log('Title: ' + jsonData.Title); // Print the HTML for the Google homepage.
-        console.log('Year: ' + jsonData.Year);
+        //console.log('error:', error); Print the error if one occurred
+        
+        // console.log(jsonData);
+        console.log("\n~~Movie This Results~~\n")
+        console.log('Move Title: ' + jsonData.Title); 
+        console.log('Release Year: ' + jsonData.Year);
+        console.log('IMDB Rating: '+jsonData.imdbRating);
+        console.log('Rotten Tomatoes Rating: '+jsonData.Ratings.Source);
+        console.log('Country of Origin: '+jsonData.Country);
+        console.log('Language: '+jsonData.Language); 
+        console.log('Plot: '+jsonData.Plot);
+        console.log('Actors: '+jsonData.Actors);
+        console.log("\n~~~~\n");
+        
     });
 }
 
 var doIt = function () {
-    fs.readFile('random.txt',"utf8", function(err, data) {
+    fs.readFile('random.txt', "utf8", function (err, data) {
         // console.log(data);
         var dataArray = data.split(",");
-        if (dataArray.length === 2){
+        // if (err) {
+        //     return console.log('Error occurred: ' + err);
+        // }
+
+         if (dataArray.length === 2) {
             input(dataArray[0], dataArray[1]);
         }
 
-        else if (dataArray.length === 1){
+        else if (dataArray.length === 1) {
             input(dataArray[0]);
         }
-      });
+    });
 }
 
 

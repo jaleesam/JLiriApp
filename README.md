@@ -30,4 +30,4 @@ node liri.js do-what-it-says
 ```
 This prompt will return a random output.  Try it out to see what it does!
 
-Thank yoy for looking at my aplication and viewing this README. 
+Thank you for looking at my aplication and viewing this README. 
