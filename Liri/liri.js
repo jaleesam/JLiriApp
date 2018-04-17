@@ -33,9 +33,9 @@ var getSpotifyData = function (songData) {
         // console.log(data.tracks.items);
         for (var i = 0; i < data.tracks.items.length; i++) {
             console.log('~Song Result~\n')
-            console.log('Song Title: ' +data.tracks.items[i].name);
-            console.log('Song Preview: ' +data.tracks.items[i].preview_url);
-            console.log('Album : ' +data.tracks.items[i].album.name);
+            console.log('Song Title: ' + data.tracks.items[i].name);
+            console.log('Song Preview: ' + data.tracks.items[i].preview_url);
+            console.log('Album : ' + data.tracks.items[i].album.name);
             console.log("\n~~~~\n");
         }
     });
@@ -53,20 +53,20 @@ var getMovieData = function (movieData) {
         var jsonData = JSON.parse(body);
 
         //console.log('error:', error); Print the error if one occurred
-        
-        
+
+
 
         console.log("\n~~Movie This Results~~\n")
-        console.log('Move Title: ' + jsonData.Title); 
+        console.log('Move Title: ' + jsonData.Title);
         console.log('Release Year: ' + jsonData.Year);
-        console.log('IMDB Rating: '+jsonData.imdbRating);
-        console.log('Rotten Tomatoes Rating: '+jsonData.Ratings[1].Value);
-        console.log('Country of Origin: '+jsonData.Country);
-        console.log('Language: '+jsonData.Language); 
-        console.log('Plot: '+jsonData.Plot);
-        console.log('Actors: '+jsonData.Actors);
+        console.log('IMDB Rating: ' + jsonData.imdbRating);
+        console.log('Rotten Tomatoes Rating: ' + jsonData.Ratings[1].Value);
+        console.log('Country of Origin: ' + jsonData.Country);
+        console.log('Language: ' + jsonData.Language);
+        console.log('Plot: ' + jsonData.Plot);
+        console.log('Actors: ' + jsonData.Actors);
         console.log("\n~~~~\n");
-        
+
     });
 }
 
@@ -78,7 +78,7 @@ var doIt = function () {
         //     return console.log('Error occurred: ' + err);
         // }
 
-         if (dataArray.length === 2) {
+        if (dataArray.length === 2) {
             input(dataArray[0], dataArray[1]);
         }
 
